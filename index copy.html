@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shiv's Photography - Wedding & Event Photographer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="" href="Shiv's Photography Logo (White) (1).png">
+
+  <!-- FONT IMPORTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400,300i&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/jenne-sue">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Add this inside your <head> to load premium fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- NOTE: AOS library needs to be included for animations to work. You can add it here. -->
+  <!-- Example: <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+
+  <style>
+    /* --- GLOBAL STYLES --- */
+    :root {
+      --nav-height: 60px; /* Define navbar height as a variable */
+    }
+    
+    html {
+      scroll-padding-top: var(--nav-height); /* Offset for anchor links */
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background-color: #f6f7f2; /* Base background for consistency */
+      overflow-x: hidden;
+    }
+    p{
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ========== NAVBAR STYLES ========== */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 50;
+        background-color: transparent;
+        color: white;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* Scrolled state for the navbar */
+    .navbar.scrolled {
+        background-color: white;
+        color: #2D2D2D; /* charcoal */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .navbar-left, .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    #nav-logo {
+        height: 2rem;
+        width: auto;
+        padding-left: -1rem;
+    }
+    .navbar-brand-text {
+        font-family: "Noto Sans JP", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 1.125rem;
+        font-style: lowercase;
+    }
+    .castoro-titling-regular {
+        font-family: "Castoro Titling", serif;
+        font-weight: 400;
+        font-style: italic;
+        
+      }
+    .bodoni-moda-regular {
+      font-family: "Bodoni Moda", serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .navbar-right a svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    #menu-btn {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        padding: 0;
+    }
+    #menu-btn svg {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    /* Mobile Menu Styles */
+    .mobile-menu {
+        position: fixed;
+        top: var(--nav-height); /* Position below navbar */
+        right: 0;
+        width: 100%;
+        background-color: black;
+        color: white;
+        padding: 1rem;
+        z-index: 49;
+    }
+    .mobile-menu a {
+        display: block;
+        padding: 0.5rem 0;
+        color: white;
+        text-decoration: none;
+    }
+    .hidden {
+        display: none;
+    }
+
+
+    /* --- SECTION 1: HERO (NEW) --- */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+      width: 100%;
+      background-color: #000;
+      position: relative;
+    }
+    .hero-logo-image {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      max-width: 130px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .hero-top {
+      flex-grow: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      opacity: 0.3; /* Subtle video effect */
+    }
+    .hero-bottom {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: -1rem 0;
+      background-color: #f6f7f2;
+    }
+    
+    /* --- Animated Mouse Scroll Icon --- */
+    .mouse-scroll-container {
+        position: absolute;
+        bottom: 1.5rem; /* Positioned below the logo */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: none; /* Hidden by default (for mobile) */
+    }
+    @media (min-width: 300px) { /* Show on medium screens and up */
+        .mouse-scroll-container {
+            display: block;
+        }
+    }
+    .mouse-icon {
+        width: 15px;
+        height: 25px;
+        border: 1px solid white;
+        border-radius: 25px;
+        margin-top: 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mouse-wheel {
+        width: 6px;
+        height: 10px;
+        background-color: white;
+        border-radius: 10px;
+        animation: scroll-wheel 1.5s infinite;
+    }
+    @keyframes scroll-wheel {
+        0% { transform: translateY(-8px); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(8px); opacity: 0; }
+    }
+
+
+    /* --- SECTION 2: INQUIRY FORM ('section1letscurate.html') --- */
+    .curate-memories-section {
+      background-color: #f7f7f1;
+      font-family: 'Inter', sans-serif;
+      color: #222;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .curate-memories-section h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-style: italic;
+      font-weight: 300;
+      margin-top: 0;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .curate-memories-section .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .curate-memories-section .form-line {
+      margin: 15px 0;
+      text-align: center;
+      font-weight: 300;
+      font-size: 16px;
+      letter-spacing: 0.4px;
+      line-height: 2;
+    }
+    .curate-memories-section .input-field {
+      border: none;
+      border-bottom: 1px solid #444;
+      background: transparent;
+      font-size: 16px;
+      font-weight: 300;
+      padding: 5px 10px;
+      margin: 0 5px;
+      min-width: 100px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .curate-memories-section .input-field:focus {
+      outline: none;
+      border-color: #000;
+    }
+    .curate-memories-section .button-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px 0 20px;
+    }
+    .curate-memories-section .button {
+      padding: 12px 25px;
+      border: 2px solid #000;
+      background: transparent;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .curate-memories-section .button:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* --- SECTION 3: PHOTO GALLERY ('redefiningweddingsection.html') --- */
+    .photo-gallery-section {
+      background: #f6f7f2;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5vw 0;
+    }
+
+    .photo-gallery-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      text-align: center;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+
+    /* --- SECTION 4: SERVICES ('services.html') --- */
+    .wedding-categories-section {
+      background: #ffffff;
+      font-family: 'Montserrat', Arial, sans-serif;
+      
+      text-align: center;
+    }
+    .wedding-categories {
+      display: flex;
+      justify-content: center;
+      gap: 5vw;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+    .wedding-category {
+      background: transparent;
+      flex: 1 1 310px;
+      max-width: 390px;
+      text-align: left;
+      padding: 0 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .wedding-category .cat-icon {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 38px;
+    }
+    .wedding-category h3 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #000000;
+      margin: 0 0 0.3rem 0;
+      text-transform: uppercase;
+      word-spacing: 0.2em;
+    }
+    .wedding-category h3 strong {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .wedding-category .cat-subtitle {
+      color: #000000;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .wedding-category  {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.08rem;
+      color: #000000;
+      line-height: 1.7;
+      margin-bottom: 0;
+      font-weight: 400;
+      text-align: justify;
+      text-indent: 2em;
+      white-space: pre-line;
+    }
+    @media (max-width: 1100px) {
+      .wedding-categories { gap: 2vw; }
+    }
+    @media (max-width: 900px) {
+      .wedding-categories { flex-direction: column; align-items: center; gap: 2.5rem; }
+      .wedding-category { max-width: 600px; padding: 0 2vw; }
+    }
+    @media (max-width: 600px) {
+      .wedding-category h3 { font-size: 1.1rem; }
+      .wedding-category p { font-size: 0.97rem; }
+      .wedding-category .cat-icon { font-size: 1.4rem; }
+    }
+    .input-field {
+      font-size: 16px;
+      font-weight: 50;
+      font-family: 'Inter', sans-serif;
+      padding: 4px 2px;
+      border: none;
+      border-bottom: 1px solid #333;
+      background-color: transparent;
+      color: #333;
+      outline: none;
+      min-width: 150px;
+      text-align: center;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    /* Custom arrow for dropdown */
+    select.input-field {
+      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 4px center;
+      background-size: 10px;
+      padding-right: 20px;
+      max-width: 190px;
+    }
+
+    /* === ADDED FONTS & SECTION-STYLES === */
+    @font-face {
+      font-family: 'EditorialNew';
+      src: url('EditorialNew-Regular.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'EditorialItalic';
+      src: url('EditorialNew-Italic.otf') format('opentype');
+    }
+
+    body {
+      background-color: #f6f7f2;
+      margin: 0;
+      font-family: 'Lora', serif;
+      color: #000;
+      line-height: 1.8;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-family: 'EditorialNew', serif;
+    }
+
+    h2 strong {
+      font-family: 'EditorialItalic', serif;
+      font-style: normal;
+    }
+
+    p {
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    img {
+      width: 80%;
+      height: auto;
+    }
+
+    .section-wrapper {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1rem;
+      background-color: white;
+    }
+
+    .content-block {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .content-block.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .content-image {
+      flex: 2; /* Assigns 2 parts of the space (e.g., 40%) */
+      padding: 1rem;
+    }
+    .content-text {
+      flex: 3; /* Assigns 3 parts of the space (e.g., 60%), making it larger */
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav id="main-nav" class="navbar" style="background-color: transparent; color: white;">
+    <!-- Left: Logo + Text -->
+    <div class="navbar-left" style="padding-bottom: 10px;">
+        <!-- White Logo -->
+        <img id="nav-logo" src="Shiv's Photography Logo (White) (1).png" alt="Logo" style="padding-bottom: 8px; padding-left: 8px;">
+        <img src="shiv's photography.png" alt="Logo Text" style="max-width: 8%; height: auto;">
+    </div>
+
+    <!-- Right: Social Icons + Burger -->
+    <div class="navbar-right" style="display: flex; gap: 12px; align-items: center;">
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram">
+            <svg fill="white" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm5.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"></path>
+            </svg>
+        </a>
+        
+        <!-- YouTube -->
+        <a href="#" aria-label="YouTube">
+            <svg fill="white" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C17.5 2.5 12 2.5 12 2.5h-.1s-5.5 0-8.6.4c-.4.1-1.3.1-2.1 1C.7 4.6.5 6.2.5 6.2S0 8.1 0 10v4c0 1.9.5 3.8.5 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.8.2 7.3.4 8.3.4 0 0 5.5 0 8.6-.4.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.5-1.9.5-3.8v-4c0-1.9-.5-3.8-.5-3.8zM9.7 14.3V8.7L15.5 11l-5.8 3.3z"/>
+            </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="#" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="auto" height="24px" viewBox="0,0,256,256"
+        style="fill:#FFFFFF;">
+        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)"><path d="M7.5,5c-1.36719,0 -2.5,1.13281 -2.5,2.5v17c0,1.36719 1.13281,2.5 2.5,2.5h17c1.36719,0 2.5,-1.13281 2.5,-2.5v-17c0,-1.36719 -1.13281,-2.5 -2.5,-2.5zM7.5,7h17c0.28516,0 0.5,0.21484 0.5,0.5v17c0,0.28516 -0.21484,0.5 -0.5,0.5h-17c-0.28516,0 -0.5,-0.21484 -0.5,-0.5v-17c0,-0.28516 0.21484,-0.5 0.5,-0.5zM10.4375,8.71875c-0.94922,0 -1.71875,0.76953 -1.71875,1.71875c0,0.94922 0.76953,1.71875 1.71875,1.71875c0.94922,0 1.71875,-0.76953 1.71875,-1.71875c0,-0.94922 -0.76953,-1.71875 -1.71875,-1.71875zM19.46875,13.28125c-1.43359,0 -2.38672,0.78516 -2.78125,1.53125h-0.0625v-1.3125h-2.8125v9.5h2.9375v-4.6875c0,-1.23828 0.24609,-2.4375 1.78125,-2.4375c1.51172,0 1.53125,1.39844 1.53125,2.5v4.625h2.9375v-5.21875c0,-2.55469 -0.54297,-4.5 -3.53125,-4.5zM9,13.5v9.5h2.96875v-9.5z"></path></g></g>
+        </svg>            
+        </a>
+        <!-- Pinterest -->
+        <a href="#" aria-label="Pinterest">
+           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="auto" height="24px" viewBox="0 0 50 50"
+style="fill:#FFFFFF;">
+<path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609825 4 46 13.390175 46 25 C 46 36.609825 36.609825 46 25 46 C 22.876355 46 20.82771 45.682142 18.896484 45.097656 C 19.75673 43.659418 20.867347 41.60359 21.308594 39.90625 C 21.570728 38.899887 22.648438 34.794922 22.648438 34.794922 C 23.348841 36.132057 25.395277 37.263672 27.574219 37.263672 C 34.058123 37.263672 38.732422 31.300682 38.732422 23.890625 C 38.732422 16.78653 32.935409 11.472656 25.476562 11.472656 C 16.196831 11.472656 11.271484 17.700825 11.271484 24.482422 C 11.271484 27.636307 12.94892 31.562193 15.634766 32.8125 C 16.041611 33.001865 16.260073 32.919834 16.353516 32.525391 C 16.425459 32.226044 16.788267 30.766792 16.951172 30.087891 C 17.003269 29.871239 16.978043 29.68405 16.802734 29.470703 C 15.913793 28.392399 15.201172 26.4118 15.201172 24.564453 C 15.201172 19.822048 18.791452 15.232422 24.908203 15.232422 C 30.18976 15.232422 33.888672 18.832872 33.888672 23.980469 C 33.888672 29.796219 30.95207 33.826172 27.130859 33.826172 C 25.020554 33.826172 23.440361 32.080359 23.947266 29.939453 C 24.555054 27.38426 25.728516 24.626944 25.728516 22.78125 C 25.728516 21.130713 24.842754 19.753906 23.007812 19.753906 C 20.850369 19.753906 19.117188 21.984457 19.117188 24.974609 C 19.117187 26.877359 19.761719 28.166016 19.761719 28.166016 C 19.761719 28.166016 17.630543 37.176514 17.240234 38.853516 C 16.849091 40.52931 16.953851 42.786365 17.115234 44.466797 C 9.421139 41.352465 4 33.819328 4 25 C 4 13.390175 13.390175 4 25 4 z"></path>
+</svg>
+        </a>
+
+        <!-- Burger Menu -->
+        <button id="menu-btn">
+            <svg fill="white" stroke="white" stroke-width="2" viewBox="0 0 24 24" width="28" height="28">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+</nav>
+
+  <!-- SECTION 1: HERO -->
+  <header class="hero-section" style="padding-top: 0;">
+    <div class="hero-top">
+      <video playsinline autoplay muted loop class="hero-video">
+        <!-- Placeholder Video -->
+        <source src="In the Vibrant Landscape of Emotive Whispers _ Wedding Highlight of Abi & Soni _ Shiv's Photography.mp4" type="video/mp4">
+      </video>
+      <div>
+        <!-- Main hero logo -->
+        <img src="Shiv's Photography Logo (White) (1).png" alt="Shiv Photography Logo" class="hero-logo-image">
+      </div>
+      <!-- Animated Mouse Icon -->
+      <div class="mouse-scroll-container">
+          <div class="mouse-icon">
+              <div class="mouse-wheel"></div>
+          </div>
+      </div>
+    </div>
+    
+  </header>
+  <section>
+  <div class="hero-bottom" style="text-align: center;">
+  <img src="Headline.png" 
+       alt="Tagline Image" 
+       style="max-width: 55%; height: auto; display: inline-block;padding-top: 20px;">
+</div>
+
+<!-- SECTION 2: INQUIRY FORM -->
+<section class="curate-memories-section" style="font-family: 'Inter', sans-serif; background-color: #f7f7f1; padding: 2rem; padding-top: 125px;">
+  <h1 style="text-align: center; font-style: italic; font-size: 2rem; margin-bottom: 2rem;">Let’s Curate Memories!</h1>
+  <div class="content" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+    
+    <div class="form-line" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem; padding-top: 40px;">
+      <span>HI, MY NAME IS</span>
+      <input type="text" class="input-field" placeholder="your name">
+      <span>. I'M PLANNING A</span>
+      <select class="input-field">
+        <option selected>Wedding</option>
+        <option>Engagement</option>
+        <option>Engagement+Wedding+Reception ( Receive a Special Gift on us!)</option>
+        <option>Engagement+Wedding ( Get Rewarded! )</option>
+        <option>Wedding+Reception ( Get rewarded! )</option>
+        <option>Dreamy Outdoor Session</option>
+        <option>House-Warming ( Curated Offer Available Now! )</option>
+        <option>Others</option>
+      </select>
+      <span>HAPPENING IN</span>
+      <input type="text" class="input-field" placeholder="Kanyakumari">
+      <span>ON</span>
+      <input type="text" class="input-field" placeholder="01-01-2025">
+      <span>.</span>
+    </div>
+
+    <div class="form-line" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem;">
+      <span>YOU CAN REACH ME AT / WHATSAPP AT +91</span>
+      <input type="text" class="input-field" placeholder="9486576579">
+      <span>OR CALL ME THROUGH BOTIM AT</span>
+      <input type="text" class="input-field" placeholder="9486576579">
+      <span>.</span>
+    </div>
+
+    <div class="form-line" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem;">
+      <span>HERE&rsquo;S A BIT MORE ABOUT THE EVENT</span>
+      <input type="text" class="input-field" placeholder="...">
+    </div>
+
+<div class="button-wrapper" style="margin-top: 1.5rem; display: flex; justify-content: flex-end; width: 100%; max-width: 900px;">
+  <button class="button" style="border: 1px solid black; padding: 0.5rem 1.5rem; background: none; font-weight: 300; cursor: pointer; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; font-size: 1.2rem; letter-spacing: 2px">
+    STARTS HERE
+  </button>
+</div>
+
+  </div>
+</section>
+
+  
+<section style="padding-top: 2rem;padding-bottom: 2rem; max-width: 1200px; margin: auto; background-color: #f6f7f2;">
+  <!-- Heading Image -->
+  <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+    <img src="Untitled design (2).png" alt="Redefining Wedding Photography" style="max-width: 100%; width: 30%; height: auto;">
+</div>
+
+
+  <!-- Photo Gallery -->
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    
+    <!-- Left Image -->
+    <div style="flex: 1 1 30%; text-align: center; margin-top: 6rem; margin-right: 2rem;">
+      <img src="039A0266.jpg" alt="Couple laughing together" style="width: 75%; height: auto;">
+    </div>
+
+    <!-- Center Image -->
+    <div style="flex: 1 1 30%; text-align: center;">
+      <img src="039A0266.jpg" alt="Bride in a stunning traditional dress" style="width: 100%; height: auto;">
+    </div>
+
+    <!-- Right Image -->
+    <div style="flex: 1 1 30%; text-align: center; margin-top: 6rem; margin-left: 2rem;">
+      <img src="039A0266.jpg" alt="Close-up of wedding details" style="width: 75%; height: auto;">
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION 4: SERVICES -->
+<section class="wedding-categories-section">
+  <div class="wedding-categories">
+
+<!-- Candid Chronicles -->
+<div class="wedding-category"  style="padding-right: 40px;padding-bottom: 100px;">
+  <div class="cat-icon">
+    <img src="1.png" alt="Candid Icon">
+  </div>
+  <h3>
+    CANDID <br><strong>CHRONICLES</strong>
+  </h3>
+  <div class="cat-subtitle">
+    Moments that happen naturally, memories that stay forever.
+  </div>
+  <p>
+    At Shiv's Photography, we believe the most beautiful moments are the ones that happen on their own — a quiet smile, a happy tear, a glance filled with love. Our candid photography style gently captures these real emotions as your day unfolds. Without interrupting the flow, we preserve your story just the way it is — natural, emotional, and timeless.
+  </p>
+</div>
+
+
+    <!-- Traditional Photography -->
+    <div class="wedding-category">
+      <div class="cat-icon">
+        <img src="2.png" alt="Traditional Icon">
+      </div>
+      <h3>TRADITIONAL <strong>PHOTOGRAPHY</strong></h3>
+      <div class="cat-subtitle">Honouring rituals. Where culture meets class.</div>
+      <p style="font-family: 'Playfair Display' ">
+        Your weddings are full of meaning and tradition. From Thirumaangalyam to Mela Thalam, every step has a story behind it. We capture each ceremony with care — focusing on the details, the family bonds, and the beauty of your culture. With Shiv's Photography, your traditions are respectfully and beautifully preserved, creating memories to cherish for generations.
+      </p>
+    </div>
+
+    <!-- Cinematic Wedding Stories -->
+    <div class="wedding-category" style="padding-left: 40px;">
+      <div class="cat-icon">
+        <img src="4.png" alt="Cinematic Icon">
+      </div>
+      <h3>CINEMATIC WEDDING <strong>STORIES</strong></h3>
+      <div class="cat-subtitle">Your love, shot and told like a movie.</div>
+      <p style="font-family: 'Playfair Display' ">
+        What if your wedding film felt like a heartfelt movie — starring you? At Shiv's, our cinematic films gently weave together emotions, traditions, and joyful moments into a beautiful story that feels personal and real. From soft music to serene visuals, slow-motion thaali moments, laughter, and tears — it all flows like a timeless love story. More than just a video, it's a beautiful legacy, just like your love story.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.wedding-category h3 {
+  text-align: center;
+  font-weight: normal;
+}
+
+.wedding-category h3 strong {
+  font-weight: bold;
+}
+
+.wedding-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center; /* center all items in the row */
+}
+.h3 {
+   text-align: center;
+}
+
+.wedding-category {
+  text-align: center;
+  max-width: 350px;
+}
+
+.cat-icon {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem;
+}
+
+.cat-icon img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+</style>
+<div style="width:auto; height:80px; background: linear-gradient(360deg, rgb(255, 255, 255) 0%, rgba(93, 93, 93, 0) 53%, rgba(160, 160, 160, 0.145) 100%);"></div>
+
+<section class="wedding-categories-section" style=" background-color: #ffffff; padding-left: 400px;padding-right: 400px; font-family: playfair display, serif;">
+
+<!-- === NEW SECTIONS === -->
+<section class="section-wrapper ">
+  <!-- 1. Intimate Moments -->
+  <div class="content-block">
+    <div class="content-image">
+      <img src="039A0266.jpg" alt="Intimate Moments">
+    </div>
+    <div class="content-text" style="text-align: start; padding-right: 50px; justify-content: justify;">
+      <img src="Intimate Moments.png" style="max-width: 100%; height: auto;color: #3e3e3e;">
+      <p style="padding-left: 20px;">
+        In a world full of staged moments, we seek the ones that happen when no one's watching. A glance before the vows. A hand held tightly in silence. These are the frames that hold emotion at its purest. Whether it's a quiet backyard wedding or a place full of tradition, we focus on intimacy on scale. Because what matters most isn't how big the moment is, but how deeply it's felt.
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. Seamless Collaboration -->
+  <div class="content-block reverse">
+    <div class="content-image">
+      <img src="039A0266.jpg" alt="Seamless Collaboration">
+    </div>
+    <div class="content-text" style="text-align: start; justify-content: justify; padding-right: 40px">
+      <img src="Seamless Collaboration.png" style="max-width: 100%; height: auto; ">
+      <p style="padding-left: 0px; justify-content: justify;color: #3e3e3e;">
+        Weddings are woven by many hands, and we believe in moving with the rhythm of every team around us. From planners to makeup artists, from decorators to surging crowds, we align, adapt, and collaborate with care. With our couples too, we don't just take direction,  we listen, share, and co-create. Because when everyone flows together, the story unfolds effortlessly. And the magic feels real.
+      </p>
+    </div>
+  </div>
+
+  <!-- 3. Gentle Storytelling -->
+  <div class="content-block">
+    <div class="content-image">
+      <img src="039A0266.jpg" alt="Gentle Storytelling">
+    </div>
+    <div class="content-text" style="text-align: start; padding-right: 50px; justify-content: justify;">
+      <img src="Gentle Storytelling.png" style="max-width: 100%; height: auto;">
+      <p style="padding-left: 20px; justify-content: justify;color: #3e3e3e; ;">
+        We don't interfere. We observe. Our style is soft, artful, and deeply honest. We'll guide you when you need us, but we'll also know when to fade into the background and let real moments unfold. There's no pressure to perform, no overdone posing. Just real emotion, real connection, styled with grace and captured with calm presence.
+      </p>
+    </div>
+  </div>
+
+  <!-- 4. True Connections -->
+  <div class="content-block reverse">
+    <div class="content-image">
+      <img src="039A0266.jpg" alt="True Connections">
+    </div>
+    <div class="content-text" style="text-align: start; padding-right: 50px; justify-content: justify;">
+      <img src="True Connection.png" style="max-width: 100%; height: auto;">
+      <p style="padding-left: 0px; justify-content: justify;color: #3e3e3e;">
+        From the first conversation to the final delivery, we become part of your story. We learn your energy, your comfort zones, your people. By the time we're framing your moments, we already feel like we belong. We adjust your dupatta, laugh with your cousins, tear up with your parents. This connection lets us see more, feel more, and capture what truly matters — with heart, not just with skill.
+      </p>
+    </div>
+  </div>
+
+  <!-- 5. Timeless Quality -->
+  <div class="content-block">
+    <div class="content-image">
+      <img src="039A0266.jpg" alt="Timeless Quality">
+    </div>
+    <div class="content-text" style="text-align: start; padding-right: 50px; justify-content: justify;">
+      <img src="Timelkess Quality (2).png" style="max-width: 100%; height: auto;">
+      <p style="padding:20px; justify-content: justify;color: #3e3e3e;">
+        Every photo we deliver carries not just beauty, but intention. We don't believe in fast edits or rushed stories. From the tones we shape to the final print you hold, quality is at the heart of everything. These aren’t just files — they’re future memories, meant to be revisited, held, framed, and passed down. Crafted slowly. Preserved beautifully. Timeless in every way.
+      </p>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="atelier-about" aria-labelledby="about-title">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+    /* Pure CSS, no Tailwind. Solid background only. */
+    #atelier-about {
+      background-color: #2d2d2d; /* only background color */
+      color: #e7e7e7;
+      color-scheme: dark;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Bebas Neue', Arial, Helvetica, sans-serif; /* Bebas Neue normal */
+      letter-spacing: 0.02em;
+    }
+        /* Optional: use Playfair for intro/outro lines */
+    #atelier-about .lede,
+    #atelier-about .outro p {
+      font-family: "Playfair Display", serif;
+    }
+
+    /* Layout */
+    #atelier-about .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 64px 24px 88px;
+    }
+
+    /* Header */
+    #atelier-about header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    #atelier-about .brandmark {
+      width: min(72vw, 440px);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Typography (smaller sentences) */
+    #atelier-about .lede {
+      text-align: center;
+      margin: 0 auto 28px;
+      max-width: 900px;
+      font-size: 18px;       /* smaller than before */
+      line-height: 1.35;
+      color: #f0f0f0;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    #atelier-about .story {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #atelier-about .story p {
+      font-size: 16px;       /* smaller paragraphs */
+      line-height: 1.55;
+      color: #d6d6d6;
+      margin: 0 0 18px;
+      font-weight: 100;
+      font-style: normal;
+    }
+
+    #atelier-about em {
+      font-style: italic; /* will render oblique with Bebas Neue */
+    }
+
+    #atelier-about .outro {
+      margin-top: 3px;
+    }
+    #atelier-about .outro p {
+      font-size: 18px;
+      line-height: 0;
+      color: #ffe8b3;
+      opacity: 0.9;
+      font-weight: 100;
+      font-style: italic;
+    }
+
+    /* Reveal-on-scroll (kept lightweight) */
+    #atelier-about .fade {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 600ms cubic-bezier(.22,.61,.36,1),
+                  transform 600ms cubic-bezier(.22,.61,.36,1);
+      will-change: opacity, transform;
+    }
+    #atelier-about .fade.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      #atelier-about .fade {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <div class="wrap" style="font-family: 'Playfair Display', serif;">
+    <header class="fade">
+      <img src="about us.png" alt="About us" class="brandmark">
+    </header>
+
+    <div class="story">
+      <p class="fade" style="transition-delay: 80ms; padding-bottom: 20px;">
+        Immerse yourself in the soulful world of visual poetry, where every frame is woven with feeling, every detail shaped with intention, and every story told with grace.
+      </p>
+      <p class="fade" style="transition-delay: 120ms; padding-bottom: 20px;">
+        Founded by <em>Shivani</em> — an architect by education and a visual artist by heart — our studio is the result of years of passion poured into the art of storytelling through the lens. What began as a creative calling has grown into a dedicated team that thrives on connection, craft, and capturing love in its most honest, breathtaking form.
+      </p>
+
+      <div class="separator fade" style="transition-delay: 160ms;"></div>
+
+      <p class="fade" style="transition-delay: 200ms; padding-bottom: 20px;">
+        We believe that wedding photography isn't just about taking beautiful pictures — it's about understanding people, listening to their stories, and gently blending into their celebrations to preserve the moments that matter. From intimate home weddings to grand destination celebrations, our team works with a seamless blend of warmth and professionalism, building genuine relationships that reflect in every shot we take.
+      </p>
+
+      <div class="separator fade" style="transition-delay: 240ms;"></div>
+
+      <p class="fade" style="transition-delay: 280ms; padding-bottom: 20px;">
+        Our strength lies in the bonds we form — not just with couples, but with families, planners, artists, and fellow creatives involved in each wedding. We believe in collaboration over coordination, artistry over formulas, and meaning over trend. Whether it's a quiet ritual moment lit by soft temple light or an exuberant banquet in golden dusk, we move with purpose and presence, ready to catch the magic just as it unfolds.
+      </p>
+
+      <div class="outro fade" style="transition-delay: 320ms; padding-bottom: 20px;">
+        <p>
+          Because at the heart of our photography is not just an image—but a feeling. One that lasts a lifetime.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.getElementById('atelier-about');
+      if (!root) return;
+
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) {
+        const fadeEls = root.querySelectorAll('.fade');
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in-view');
+              io.unobserve(e.target);
+            }
+          }
+        }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+        fadeEls.forEach(el => io.observe(el));
+      } else {
+        root.querySelectorAll('.fade').forEach(el => el.classList.add('in-view'));
+      }
+    })();
+  </script>
+</section>
+
+<section>
+  <img src="SP019657 copy.webp" alt="Description of image" style="max-width: 100%; height: auto;">
+</section>
+
+
+<!-- NOTE: AOS library needs to be included for animations to work. -->
+<!-- Example: <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if AOS is defined before initializing
+        if (typeof AOS !== 'undefined') {
+            AOS.init({ duration: 800, once: true, offset: 50 });
+        } else {
+            console.warn('AOS library is not loaded. Animations will not work.');
+        }
+
+        // --- NAVBAR AND MENU LOGIC ---
+        const nav = document.getElementById('main-nav');
+        const navLogo = document.getElementById('nav-logo');
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Define the paths for both logo versions
+        const logoWhite = "Shiv's Photography Logo (White) (1).png";
+        const logoBlack = 'shiv_s_photography_logo.jpeg'; // **NOTE: Ensure this file exists**
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+                if (navLogo) navLogo.src = logoBlack;
+            } else {
+                nav.classList.remove('scrolled');
+                if (navLogo) navLogo.src = logoWhite;
+            }
+        });
+
+        // Toggle Mobile Menu
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+
+        // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // This will now automatically use the scroll-padding-top from CSS
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
