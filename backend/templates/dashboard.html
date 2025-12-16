@@ -112,12 +112,17 @@
 
                 const data = await response.json();
                 if (data.success) {
-                    alert('Successfully pushed to Git: ' + data.message);
+                    // Check if it's a "no changes" message
+                    if (data.message.includes('No changes')) {
+                        alert('ℹ️ ' + data.message);
+                    } else {
+                        alert('✓ ' + data.message);
+                    }
                 } else {
-                    alert('Error: ' + data.error);
+                    alert('❌ Error: ' + data.error);
                 }
             } catch (error) {
-                alert('Error pushing to Git: ' + error);
+                alert('❌ Error pushing to Git: ' + error);
             }
         }
 
