@@ -65,7 +65,7 @@ git config user.email "your.email@example.com"
 Replace with your actual GitHub repository URL:
 
 ```bash
-git remote add origin https://github.com/Z3connect/shivsphotography.git
+git remote add origin https://github.com/AhamedShafeek/shivswebsite.git
 ```
 
 **Note:** Get your repository URL from GitHub:
