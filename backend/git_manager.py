@@ -66,6 +66,14 @@ class GitManager:
             raise Exception("No remote repository configured. Please add a remote first using 'git remote add origin <url>'")
         return self.run_git_command(f'git push origin {branch}')
     
+    def has_changes(self):
+        """Check if there are uncommitted changes"""
+        try:
+            status = self.run_git_command('git status --porcelain')
+            return len(status.strip()) > 0
+        except:
+            return False
+    
     def commit_and_push(self, message, branch='main'):
         """Add, commit, and push changes"""
         try:
@@ -76,6 +84,10 @@ class GitManager:
             if not self.has_remote():
                 raise Exception("No remote repository configured. Please add a remote first.")
             
+            # Check if there are any changes first
+            if not self.has_changes():
+                return "No changes to commit. Working tree is clean."
+            
             # Stage all changes
             self.add_all()
             
@@ -83,19 +95,33 @@ class GitManager:
             try:
                 commit_result = self.commit(message)
             except Exception as e:
-                if "nothing to commit" in str(e).lower():
-                    return "No changes to commit"
+                error_str = str(e).lower()
+                if "nothing to commit" in error_str or "working tree clean" in error_str:
+                    return "No changes to commit. Working tree is clean."
                 raise e
             
             # Push to remote
-            push_result = self.push(branch)
+            try:
+                push_result = self.push(branch)
+            except Exception as e:
+                error_str = str(e).lower()
+                if "permission denied" in error_str or "publickey" in error_str:
+                    raise Exception("Authentication failed. Please set up SSH keys or switch to HTTPS. See GIT_SETUP_GUIDE.md")
+                raise e
             
-            return f"Successfully committed and pushed: {message}"
+            return f"✓ Successfully committed and pushed: {message}"
         except Exception as e:
             # More user-friendly error message
             error_msg = str(e)
-            if "nothing to commit" in error_msg.lower():
-                return "No changes to commit"
+            error_lower = error_msg.lower()
+            
+            if "nothing to commit" in error_lower or "working tree clean" in error_lower:
+                return "No changes to commit. Working tree is clean."
+            elif "permission denied" in error_lower or "publickey" in error_lower:
+                return "Authentication failed. Please check GIT_SETUP_GUIDE.md for SSH/HTTPS setup."
+            elif "could not resolve host" in error_lower:
+                return "Network error. Please check your internet connection."
+            
             raise Exception(f"Git operation failed: {error_msg}")
     
     def pull(self, branch='main'):
