@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Shiv's Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold">Shiv's Photography - Admin Panel</h1>
+                <div class="flex space-x-4">
+                    <button onclick="gitPush()" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg flex items-center">
+                        <i class="fas fa-cloud-upload-alt mr-2"></i> Push to Git
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Dashboard Cards -->
+            <a href="/reviews" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Manage</p>
+                        <h3 class="text-2xl font-bold text-gray-800">Reviews</h3>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-full">
+                        <i class="fas fa-star text-blue-600 text-2xl"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/faqs" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Manage</p>
+                        <h3 class="text-2xl font-bold text-gray-800">FAQs</h3>
+                    </div>
+                    <div class="bg-green-100 p-4 rounded-full">
+                        <i class="fas fa-question-circle text-green-600 text-2xl"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/gallery" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Manage</p>
+                        <h3 class="text-2xl font-bold text-gray-800">Gallery</h3>
+                    </div>
+                    <div class="bg-purple-100 p-4 rounded-full">
+                        <i class="fas fa-images text-purple-600 text-2xl"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/reels" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Manage</p>
+                        <h3 class="text-2xl font-bold text-gray-800">Reels</h3>
+                    </div>
+                    <div class="bg-pink-100 p-4 rounded-full">
+                        <i class="fas fa-film text-pink-600 text-2xl"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-bold mb-4">Quick Actions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button onclick="checkGitStatus()" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-info-circle mr-2"></i> Check Git Status
+                </button>
+                <button onclick="location.href='/reviews'" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-plus mr-2"></i> Add Review
+                </button>
+                <button onclick="location.href='/gallery'" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-image mr-2"></i> Add Gallery Image
+                </button>
+            </div>
+        </div>
+
+        <!-- Git Status Section -->
+        <div id="gitStatusSection" class="mt-6 bg-white rounded-lg shadow-md p-6 hidden">
+            <h2 class="text-xl font-bold mb-4">Git Status</h2>
+            <pre id="gitStatusContent" class="bg-gray-100 p-4 rounded text-sm overflow-auto"></pre>
+        </div>
+    </div>
+
+    <script>
+        async function gitPush() {
+            const message = prompt('Enter commit message:', 'Update website content via admin panel');
+            if (!message) return;
+
+            try {
+                const response = await fetch('/git/push', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('Successfully pushed to Git: ' + data.message);
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('Error pushing to Git: ' + error);
+            }
+        }
+
+        async function checkGitStatus() {
+            try {
+                const response = await fetch('/git/status');
+                const data = await response.json();
+                
+                const statusSection = document.getElementById('gitStatusSection');
+                const statusContent = document.getElementById('gitStatusContent');
+                
+                if (data.success) {
+                    statusContent.textContent = data.status;
+                    statusSection.classList.remove('hidden');
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('Error checking Git status: ' + error);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reels Manager - Shiv's Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold">Reels Manager</h1>
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-8">
+        <!-- Add Reel Form -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Add New Instagram Reel</h2>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
+                <p class="text-sm text-blue-700">
+                    <strong>How to get Instagram embed URL:</strong><br>
+                    1. Go to the Instagram post/reel on Instagram<br>
+                    2. Click the three dots (···) on the post<br>
+                    3. Click "Embed"<br>
+                    4. Copy the URL from the embed code (it looks like: https://www.instagram.com/p/ABC123/embed/)<br>
+                    5. Or just paste the regular Instagram post URL and we'll format it
+                </p>
+            </div>
+            <form id="addReelForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Instagram Post/Reel URL</label>
+                    <input type="url" id="embed_url" required placeholder="https://www.instagram.com/p/ABC123/" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Title (Optional)</label>
+                    <input type="text" id="title" placeholder="Instagram Reel" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                </div>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg">
+                    <i class="fas fa-plus mr-2"></i> Add Reel
+                </button>
+            </form>
+        </div>
+
+        <!-- Reels List -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-bold mb-4">Current Reels</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {% for reel in reels %}
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow" data-id="{{ reel.id }}">
+                    <div class="mb-3">
+                        <h3 class="font-semibold mb-2">{{ reel.title }}</h3>
+                        <p class="text-sm text-gray-600 break-all">{{ reel.embed_url }}</p>
+                    </div>
+                    <div class="aspect-video bg-gray-100 rounded mb-3 flex items-center justify-center">
+                        <i class="fas fa-instagram text-4xl text-pink-500"></i>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="{{ reel.embed_url }}" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded flex-1 text-center">
+                            <i class="fas fa-external-link-alt mr-1"></i> View
+                        </a>
+                        <button onclick="deleteReel({{ reel.id }})" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded flex-1">
+                            <i class="fas fa-trash mr-1"></i> Delete
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('addReelForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            let embedUrl = document.getElementById('embed_url').value;
+            
+            // Convert regular Instagram URL to embed URL if needed
+            if (!embedUrl.includes('/embed/')) {
+                embedUrl = embedUrl.replace(/\/$/, '') + '/embed/';
+            }
+            
+            const reelData = {
+                embed_url: embedUrl,
+                title: document.getElementById('title').value || 'Instagram Reel'
+            };
+
+            try {
+                const response = await fetch('/api/reels', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(reelData)
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('Reel added successfully!');
+                    location.reload();
+                } else {
+                    alert('Error adding reel');
+                }
+            } catch (error) {
+                alert('Error: ' + error);
+            }
+        });
+
+        async function deleteReel(id) {
+            if (!confirm('Are you sure you want to delete this reel?')) return;
+
+            try {
+                const response = await fetch(`/api/reels/${id}`, {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('Reel deleted successfully!');
+                    location.reload();
+                } else {
+                    alert('Error deleting reel');
+                }
+            } catch (error) {
+                alert('Error: ' + error);
+            }
+        }
+    </script>
+</body>
+</html>
